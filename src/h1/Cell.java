@@ -9,6 +9,18 @@ public class Cell {
     private int numLivingNeighbors;
     private boolean isAliveNextGen;
 
+    public Cell(int indexRow, int indexCol, boolean alive) {
+        this.indexRow = indexRow;
+        this.indexCol = indexCol;
+        this.alive = alive;
+    }
+
+    public Cell(int indexRow, int indexCol) {
+        this.indexRow = indexRow;
+        this.indexCol = indexCol;
+        this.alive = false;
+    }
+
     public int getIndexRow() {
         return indexRow;
     }
@@ -73,10 +85,10 @@ public class Cell {
         
         setNumLivingNeighbors(livingNeighbors);
 
-        decideNextGenStatus();
+        decideNextStatus();
     }
 
-    public void decideNextGenStatus() {
+    private void decideNextStatus() {
         if (this.alive) {
             if (this.numLivingNeighbors < 2 || this.numLivingNeighbors > 3) {
                 setIsAliveNextGen(false);

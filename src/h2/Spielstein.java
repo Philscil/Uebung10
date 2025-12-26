@@ -38,8 +38,8 @@ public class Spielstein {
     }
 
     private boolean movesOut() {
-        int x = 0;
-        int y = 0;
+        int x = currentCol;
+        int y = currentRow;
 
         switch (brett.getBrett()[currentRow][currentCol].getDirection()) {
             case 'U':
@@ -56,7 +56,7 @@ public class Spielstein {
                 break;
         }
 
-        if ((x < 0 || x > brett.getDim()) || (y < 0 || y > brett.getDim())) {
+        if ((x < 0 || x >= brett.getDim()) || (y < 0 || y >= brett.getDim())) {
             return true;
         } else {
             return false;
@@ -68,7 +68,7 @@ public class Spielstein {
             return;
         }
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             if (movesOut()) {
                 return;
             } else {

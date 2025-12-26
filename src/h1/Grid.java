@@ -8,9 +8,7 @@ public class Grid {
 
         for (int i = 0; i < gridRows; i++) {
             for (int j = 0; j < gridCols; j++) {
-                this.gridArray[i][j] = new Cell();
-                this.gridArray[i][j].setIndexRow(i);
-                this.gridArray[i][j].setIndexCol(j);
+                this.gridArray[i][j] = new Cell(i, j);
 
                 for (Cell cell : cells) {
                     if (cell.getIndexRow() == i && cell.getIndexCol() == j) {
